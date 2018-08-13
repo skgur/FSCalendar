@@ -69,7 +69,7 @@
     CGFloat titleHeight = [@"1" sizeWithAttributes:@{NSFontAttributeName:self.calendar.appearance.headerTitleFont}].height*1.5 + weekdayMargin*3;
     
     _bottomBorder.frame = CGRectMake(0, _contentView.fs_height-weekdayHeight-weekdayMargin*2, _contentView.fs_width, 1.0);
-    _titleLabel.frame = CGRectMake(0, _bottomBorder.fs_bottom-titleHeight-weekdayMargin, titleWidth,titleHeight);
+    _titleLabel.frame = CGRectMake(-16, _bottomBorder.fs_bottom-titleHeight-weekdayMargin, titleWidth,titleHeight);
     
 }
 
@@ -100,6 +100,7 @@
     BOOL usesUpperCase = (self.calendar.appearance.caseOptions & 15) == FSCalendarCaseOptionsHeaderUsesUpperCase;
     NSString *text = [_calendar.formatter stringFromDate:_month];
     text = usesUpperCase ? text.uppercaseString : text;
+    self.titleLabel.textAlignment = NSTextAlignmentRight;
     self.titleLabel.text = text;
 }
 
